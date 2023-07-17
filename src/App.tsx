@@ -1,6 +1,11 @@
-import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { createContext, useState } from 'react';
+import Markets from './pages/markets/Markets';
+import News from './pages/news/News';
+import Portfolio from './pages/portfolio/Portfolio';
+import NavBar from './Layouts/navBar/NavBar';
 import './App.css';
+
 const stocks = [
     {
       "id": 1,
@@ -103,24 +108,31 @@ const stocks = [
 const defaultStock = stocks[0]
 
 function App() {
+
+  const [portfolioState, setPortfolioState] = useState(defaultStock);
+
+  const updatePortfolio = (stock: any) => {
+    setPortfolioState(stock);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <portfolioContext.Provider value={{ portfolioState, updatePortfolio }}>
+      <Router>
+        <div className="app">
+          <Routes>
+            <Route path="/" element={<Markets stocks={ stocks } />} />
+            <Route path="/portfolio" element={ <Portfolio/> } />
+            <Route path="/news" element={ <News/> } />
+          </Routes>
+          <NavBar />
+        </div> 
+      </Router>
+    </portfolioContext.Provider>
   );
 }
 
 export default App;
+export const portfolioContext = createContext({
+  portfolioState: defaultStock,
+  updatePortfolio: (stock: any) => {}
+});
