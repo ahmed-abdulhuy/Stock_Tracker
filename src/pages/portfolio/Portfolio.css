@@ -1,0 +1,60 @@
+.portfolio {
+    margin-inline: 1rem;
+    text-align: center;
+}
+.portfolio-title, .portfolio-pricing {
+    display: flex;
+    flex-direction: column;;
+    text-align: left;
+    padding-block: 1rem 0.5rem;
+}
+
+.portfolio-title {
+    flex-direction: row;
+}
+
+.return-btn {
+    display: flex;
+    align-items: center;
+    margin-inline-end: 1rem;
+    cursor: pointer;
+}
+
+.title-text {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.portfolio-stock-symbol, .portfolio-stock-price {
+    font-size: 1.25rem;
+}
+
+.portfolio-stock-name {
+    font-size: 0.75rem;
+    color: #666;
+}
+
+.portfolio-pricing {
+    margin-block-end: 0.5rem;
+}
+
+.price-info ul{
+    margin: 0;
+    padding: 0;
+}
+
+.pricing-li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5rem 0;
+}
+
+.price-info-value {
+    font-weight: bold;
+}
+
+.portfolio-btn {
+    margin-block-start: 1rem;
+}
