@@ -3,7 +3,6 @@ import "./Graph.css";
 
 
 function Graph({ priceHistory, stroke, strokeWidth, dataKey, dot, width, height }: any) {
-    console.log(stroke)
     return (
         <div className="graph">
             <ResponsiveContainer height={ height } width={width} >
