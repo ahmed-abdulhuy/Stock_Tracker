@@ -58,7 +58,7 @@ function Portfolio() {
             <div className="portfolio-graph">
                 <Graph 
                     priceHistory={portfolioState.priceHistory}
-                    stroke="black" 
+                    stroke={gainColor(portfolioState.priceHistory)}
                     strokeWidth={2} 
                     dataKey="price" 
                     dot={false} 
